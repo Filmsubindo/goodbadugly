@@ -5,8 +5,8 @@
   "servers": ["Server 1", "Server 2", "Server 3"],
   "episodes": {
     "1": {
-      "Server 1": "https://geo.dailymotion.com/player.html?video=x8ab2om",
-      "Server 2": "https://d-s.io/e/joxduogbmtxr",
+      "Server 1": "https://doods.bar/e/t5wby9ie",
+      "Server 2": "https://",
       "Server 3": "https://geo.dailymotion.com/player.html?video=x9pce2k"
     }
   }
