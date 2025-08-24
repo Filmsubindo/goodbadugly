@@ -9,32 +9,5 @@
       "Server 2": "https://d-s.io/e/joxduogbmtxr",
       "Server 3": "https://mxdrop.to/e/q16qgoz8ulzvrm"
     },
-    "2": {
-      "Server 1": "https://d-s.io/e/tgx9eefscnqb",
-      "Server 2": "https://gofile.io/d/uHAsQv",
-      "Server 3": "https://mxdrop.to/e/q16qgoz8ulzvrm"
-    },
-    "3": {
-      "doodstream": "aHR0cHM6Ly9kLXMuaW8vZS90Z3g5ZWVmc2NucWI=",
-      "mixdrop": "**MIXDROP_EP3**",
-      "streamtape": "**STREAMTAPE_EP3**"
-    },
-    "4": { "doodstream": "**DOOD_EP4**", "mixdrop": "**MIXDROP_EP4**", "streamtape": "**STREAMTAPE_EP4**" },
-    "5": { "doodstream": "**DOOD_EP5**", "mixdrop": "**MIXDROP_EP5**", "streamtape": "**STREAMTAPE_EP5**" },
-    "6": { "doodstream": "**DOOD_EP6**", "mixdrop": "**MIXDROP_EP6**", "streamtape": "**STREAMTAPE_EP6**" },
-    "7": { "doodstream": "**DOOD_EP7**", "mixdrop": "**MIXDROP_EP7**", "streamtape": "**STREAMTAPE_EP7**" },
-    "8": { "doodstream": "**DOOD_EP8**", "mixdrop": "**MIXDROP_EP8**", "streamtape": "**STREAMTAPE_EP8**" },
-    "9": { "doodstream": "**DOOD_EP9**", "mixdrop": "**MIXDROP_EP9**", "streamtape": "**STREAMTAPE_EP9**" },
-    "10": { "doodstream": "**DOOD_EP10**", "mixdrop": "**MIXDROP_EP10**", "streamtape": "**STREAMTAPE_EP10**" },
-    "11": { "doodstream": "**DOOD_EP11**", "mixdrop": "**MIXDROP_EP11**", "streamtape": "**STREAMTAPE_EP11**" },
-    "12": { "doodstream": "**DOOD_EP12**", "mixdrop": "**MIXDROP_EP12**", "streamtape": "**STREAMTAPE_EP12**" },
-    "13": { "doodstream": "**DOOD_EP13**", "mixdrop": "**MIXDROP_EP13**", "streamtape": "**STREAMTAPE_EP13**" },
-    "14": { "doodstream": "**DOOD_EP14**", "mixdrop": "**MIXDROP_EP14**", "streamtape": "**STREAMTAPE_EP14**" },
-    "15": { "doodstream": "**DOOD_EP15**", "mixdrop": "**MIXDROP_EP15**", "streamtape": "**STREAMTAPE_EP15**" },
-    "16": { "doodstream": "**DOOD_EP16**", "mixdrop": "**MIXDROP_EP16**", "streamtape": "**STREAMTAPE_EP16**" },
-    "17": { "doodstream": "**DOOD_EP17**", "mixdrop": "**MIXDROP_EP17**", "streamtape": "**STREAMTAPE_EP17**" },
-    "18": { "doodstream": "**DOOD_EP18**", "mixdrop": "**MIXDROP_EP18**", "streamtape": "**STREAMTAPE_EP18**" },
-    "19": { "doodstream": "**DOOD_EP19**", "mixdrop": "**MIXDROP_EP19**", "streamtape": "**STREAMTAPE_EP19**" },
-    "20": { "doodstream": "**DOOD_EP20**", "mixdrop": "**MIXDROP_EP20**", "streamtape": "**STREAMTAPE_EP20**" }
   }
 }
