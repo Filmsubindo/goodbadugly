@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film Sub Indo</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h1 { 
+      padding: 8px;
+      font-size: 20px;
+      margin: 0;
+    }
+    .banner {
+      background: #222;
+      margin: 10px auto;
+      padding: 10px;
+    }
+    .player-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 10px auto;
+      padding-top: 56.25%;
+    }
+    .player-container iframe,
+    .player-container video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+    .server-label { font-weight: bold; margin: 15px 0 8px; }
+    .servers button, .episodes button, .nav-buttons button {
+      margin: 4px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+    }
+    .servers button:hover, .episodes button:hover, .nav-buttons button:hover {
+      background: #555;
+    }
+    .episodes {
+      margin: 10px auto;
+      max-width: 800px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .episodes button {
+      width: 100%;
+      padding: 10px;
+    }
+    .episodes button.active, .servers button.active { 
+      background: #e50914; 
+      font-weight: bold; 
+    }
+    .nav-buttons { margin: 15px 0; }
+    .ad-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto;
+      max-width: 100%;
+    }
+    .ad-container iframe {
+      width: 100% !important;
+      height: auto !important;
+      max-width: 300px;
+      border: none;
+    }
+    .daftar-film-btn {
+      margin: 10px 0;
+    }
+    .daftar-film-btn button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      background: #e50914;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .daftar-film-btn button:hover {
+      background: #b20710;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">Film Sub Indo</h1>
+  
+  <!-- Social Bar -->
+  <div class="social-bar">
+    <script type='text/javascript' src='//pl27480535.profitableratecpm.com/fd/ba/df/fdbadfee4d981f6be627d59602cf67ae.js'></script>
+  </div>
+
+  <h3 id="title">Film horor</h3>
+
+  <!-- Tombol Daftar Film -->
+  <div class="daftar-film-btn">
+    <a href="Daftarfilm.html">
+      <button>📂 Daftar Film</button>
+    </a>
+  </div>
+
+  <!-- Player -->
+  <div class="player-container">
+    <iframe id="player" src="" allowfullscreen></iframe>
+  </div>
+
+  <!-- Pilih Server -->
+  <h3 class="server-label">Pilih Server</h3>
+  <div class="servers" id="servers"></div>
+
+  <!-- Episodes -->
+  <h3>Episode</h3>
+  <div class="nav-buttons">
+    <button onclick="prevEpisode()">Sebelumnya</button>
+    <button onclick="nextEpisode()">Selanjutnya</button>
+  </div>
+  <div id="episodes" class="episodes"></div>
+
+  <!-- Native Banner Ads -->
+  <div class="banner">
+    <script async="async" data-cfasync="false" src="//pl27480935.profitableratecpm.com/1117995809b785a3f073ab0f8a27b690/invoke.js"></script>
+    <div id="container-1117995809b785a3f073ab0f8a27b690"></div>
+  </div>
+
+  <script>
+    const dataUrl = "data.json";
+    let currentServer = "doodstream";
+    let currentEpisode = "1";
+    let data;
+
+    async function loadData() {
+      const response = await fetch(dataUrl);
+      data = await response.json();
+
+      document.getElementById("title").innerText = data.title;
+
+      const serverContainer = document.getElementById("servers");
+      serverContainer.innerHTML = "";
+      data.servers.forEach(srv => {
+        const btn = document.createElement("button");
+        btn.innerText = srv.charAt(0).toUpperCase() + srv.slice(1);
+        btn.onclick = (e) => {
+          const popunderScript = document.createElement("script");
+          popunderScript.src = "//pl27486463.profitableratecpm.com/f8/4f/38/f84f384fa7e473a12a22872f165de687.js";
+          document.body.appendChild(popunderScript);
+
+          changeServer(srv);
+          document.querySelectorAll("#servers button")
+            .forEach(b => b.classList.remove("active"));
+          e.target.classList.add("active");
+        };
+        if (srv === currentServer) btn.classList.add("active");
+        serverContainer.appendChild(btn);
+      });
+
+      const episodesContainer = document.getElementById("episodes");
+      episodesContainer.innerHTML = "";
+      Object.keys(data.episodes).forEach(num => {
+        const btn = document.createElement("button");
+        btn.innerText = "Episode " + num;
+        btn.onclick = () => {
+          const popunderScript = document.createElement("script");
+          popunderScript.src = "//pl27486463.profitableratecpm.com/f8/4f/38/f84f384fa7e473a12a22872f165de687.js";
+          document.body.appendChild(popunderScript);
+
+          loadEpisode(num);
+        };
+        btn.id = "ep-" + num;
+        episodesContainer.appendChild(btn);
+      });
+
+      loadEpisode("1");
+    }
+
+    function loadEpisode(num) {
+      currentEpisode = num;
+      const episode = data.episodes[num];
+      const url = episode[currentServer];
+      const playerContainer = document.querySelector(".player-container");
+
+      if (url && url.endsWith(".mp4")) {
+        document.getElementById("player").outerHTML = `
+          <video id="player" width="100%" height="100%" controls autoplay style="border-radius:8px;">
+            <source src="${url}" type="video/mp4">
+            Browser kamu tidak mendukung video tag.
+          </video>
+        `;
+      } else {
+        document.getElementById("player").outerHTML = `
+          <iframe id="player" src="${url}" allowfullscreen></iframe>
+        `;
+      }
+
+      document.querySelectorAll("#episodes button")
+        .forEach(b => b.classList.remove("active"));
+      document.getElementById("ep-" + num).classList.add("active");
+    }
+
+    function changeServer(server) {
+      currentServer = server;
+      loadEpisode(currentEpisode);
+    }
+
+    function nextEpisode() {
+      let next = parseInt(currentEpisode) + 1;
+      if (data.episodes[next]) loadEpisode(next.toString());
+    }
+
+    function prevEpisode() {
+      let prev = parseInt(currentEpisode) - 1;
+      if (data.episodes[prev]) loadEpisode(prev.toString());
+    }
+
+    window.onload = loadData;
+
+    /* ===== SMARTLINK PLAYER ===== */
+    const smartlink = "https://www.profitableratecpm.com/mqmhetb3m8?key=aa666ebd6608fe629f0d267996870966";
+    const adInterval = 5 * 60 * 1000;
+    const lastClickKey = "lastAdClick";
+
+    const playerContainer = document.querySelector(".player-container");
+    let overlay;
+
+    function addOverlay() {
+      overlay = document.createElement("div");
+      overlay.style.position = "absolute";
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = "100%";
+      overlay.style.height = "100%";
+      overlay.style.cursor = "pointer";
+      overlay.style.zIndex = 10;
+      overlay.style.background = "rgba(0,0,0,0)";
+
+      playerContainer.appendChild(overlay);
+
+      overlay.addEventListener("click", function() {
+        const now = Date.now();
+        const lastClick = localStorage.getItem(lastClickKey);
+
+        if (!lastClick || now - lastClick > adInterval) {
+          window.open(smartlink, "_blank");
+          localStorage.setItem(lastClickKey, now);
+        }
+
+        overlay.remove();
+      });
+    }
+
+    addOverlay();
+
+    setInterval(() => {
+      if (!document.body.contains(overlay)) {
+        addOverlay();
+      }
+    }, adInterval);
+
+  </script>
+
+</body>
+</html>
